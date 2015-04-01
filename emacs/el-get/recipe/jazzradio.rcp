@@ -1,0 +1,6 @@
+
+(:name jazzradio
+       :type git
+       :website "https://github.com/syohex/emacs-jazzradio.git"
+       :description "This is Emacs port of jazzradio.vim"
+       :url "https://github.com/syohex/emacs-jazzradio.git")

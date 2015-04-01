@@ -1,0 +1,26 @@
+# -*- mode:shell-script -*-
+
+alias java='java -Dfile.encoding=UTF-8'
+alias javac='javac -J-Dfile.encoding=utf-8'
+alias l='ls'
+alias la='ls -la'
+alias ls='/usr/local/bin/gls --color="auto"'
+alias mv='mv -i'
+alias rd='rm ~/Library/Saved\ Application\ State/org.libreoffice.script.savedState/data.data'
+alias restart='sudo /usr/sbin/apachectl restart'
+alias rm='rmtrash'
+alias cp='cp -i'
+alias start='sudo /usr/sbin/apachectl start'
+alias stop='sudo /usr/sbin/apachectl stop'
+alias vlc="${HOME}/Applications/VLC.app/Contents/MacOS/VLC --intf=rc"
+alias brew="env PATH=${PATH/usr\/local\/opt\/pyenv\/shims:?/} brew"
+alias brew="env PATH=${PATH/\/usr\/local\/opt\/\pyenv\/shims:?/} brew"
+alias sed='gsed'
+alias awk='gawk'
+alias debian='vboxmanage startvm "debian" --type headless'
+alias doc_remove='docker rm -f `docker ps -a -q`'
+alias hiragana='nkf -e | kakasi -JH | nkf -w'
+alias rake="noglob rake"
+
+# unalias history
+

@@ -1,0 +1,56 @@
+# -*- mode:shell-script -*-
+
+function include {
+    if echo "$1" | grep -q "$2"; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# environment
+
+export GNUTERM=x11
+export ALTERNATE_EDITOR=$HOME/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+export ANDROID_HOME=$HOME/local/android-sdk-macosx
+export C_INCLUDE_PATH=$HOME/local/include:/usr/llvm-gcc-4.2/include:/usr/include:/usr/local/include
+export CPLUS_INCLUDE_PATH=~/local/include
+export LD_LIBRARY_PATH=.:/usr/lib:$HOME/local/lib:/usr/local/lib:$LD_LIBRARY_PATH
+
+export PAGER=lv
+export LESS='-R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+
+export APXS2=/usr/sbin/apxs
+export PERL_CPANM_OPT="--local-lib=~/local"
+export PERL5LIB=$HOME/local/lib/perl5:$HOME/local/lib/perl5/site_perl:/Library/Perl/5.12/darwin-thread-multi-2level:$PERL5LIB
+export PERL5OPT="-Mlib=$HOME/local/lib/perl5:$PERL5LIB"
+export PYTHONPATH=.
+export PATH="${HOME}/.cask/bin:${PATH}"
+export PATH="${HOME}/.cabal/bin:${PATH}"
+export PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig
+export MANPATH="/usr/local/man:$HOME/local/share/man:$MANPATH"
+export INFOPATH="$HOME/local/share/info:$INFOPATH"
+
+test -d "${HOME}/local/bin" && export PATH=$HOME/local/bin:$PATH
+test -d "${HOME}/Library/Python/2.7/bin" && export PATH=$HOME/Library/Python/2.7/bin:$PATH
+test -d "$HOME/local/android-sdk-macosx/tools" && export PATH=$HOME/local/android-sdk-macosx/tools:$PATH
+test -d "$HOME/local/dist/pypy-2.2-osx64/bin" && export PATH=$HOME/local/dist/pypy-2.2-osx64/bin:$PATH
+test -d "$HOME/local/lib/site_ruby" && export RUBYLIB=$HOME/local/lib/site_ruby
+test -d /usr/local/git/bin && export PATH=/usr/local/git/bin:$PATH
+test -d /usr/texbin && export PATH=/usr/texbin:$PATH
+test -d /usr/local/bin && ! include "$PATH" /usr/local/bin && export PATH=/usr/local/bin:$PATH
+test -d /Users/s_10018/local/dist/tw/bin && export PATH=/Users/s_10018/local/dist/tw/bin:$PATH
+test -d "$HOME/local/dist/treetagger/cmd" && export PATH=$HOME/local/dist/treetagger/cmd:$PATH
+
+export EMACS_ROOT=/usr/local
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export GOPATH=${HOME}/local/lib/go
+export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/mai-om/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+export HOMEBREW_BREWFILE=$HOME/.brewfile
+

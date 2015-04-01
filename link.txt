@@ -1,0 +1,6 @@
+other/screenrc	~/.screenrc
+emacs/lib/my-make-filelist.rb	~/.make-filelist.rb
+zsh/alias	~/.alias
+zsh/funcs	~/.funcs
+zsh/envs	~/.envs
+zsh/zshenv	~/.zshenv

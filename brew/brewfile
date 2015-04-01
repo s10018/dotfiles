@@ -1,0 +1,207 @@
+
+# brew tap
+tap caskroom/cask
+tap caskroom/fonts
+tap gwtnb/pficommon
+tap homebrew/boneyard
+tap homebrew/dupes
+tap homebrew/science
+tap homebrew/versions
+tap mistydemeo/formulae
+tap rcmdnk/file
+tap rcmdnk/rcmdnkcask
+tap s10018/tl
+tap sanemat/font
+
+# brew
+install aspell
+install atk
+install autoconf
+install automake
+install bact
+install bison
+install boost
+install boot2docker
+install brew-cask
+install cabal-install
+install cabocha
+install cairo
+install ckylark
+install classias
+install cloog
+install cloog-ppl015
+install cloog018
+install cmake
+install cmigemo
+install coreutils
+install crf++
+install ctags
+install dmd
+install docker
+install emacs
+install figlet
+install fontconfig
+install fontforge
+install freetype
+install gauche
+install gawk
+install gcc
+install gcc44
+install gcc46
+install gd
+install gdbm
+install gdk-pixbuf
+install gettext
+install ghc
+install git
+install glib
+install global
+install gmp
+install gmp4
+install gnu-getopt
+install gnu-sed
+install gnuplot
+install gnutls
+install go
+install gobject-introspection
+install gradle
+install graphviz
+install groovy
+install gtk+
+install harfbuzz
+install icdiff
+install icu4c
+install isl
+install isl011
+install jpeg
+install jq
+install juman
+install kakasi
+install knp
+install kyoto-cabinet
+install kytea
+install libffi
+install liblbfgs
+install liblinear
+install libmarisa
+install libmpc
+install libmpc08
+install libpng
+install libtasn1
+install libtiff
+install libtool
+install little-cms2
+install lua
+install lv
+install make
+install maven
+install mecab
+install mecab-ipadic
+install mecab-jumandic
+install mecab-unidic
+install mercurial
+install mongodb
+install mpfr
+install mpfr2
+install mplayer
+install msgpack
+install nettle
+install nkf
+install node
+install o-make
+install objective-caml
+install openjpeg
+install openssl
+install ossp-uuid
+install osxfuse
+install pandoc
+install pango
+install parallel
+install pcre
+install pdf2htmlex
+install peco
+install perl-build
+install pficommon
+install pixman
+install pkg-config
+install plenv
+install poppler
+install ppl011
+install pyenv
+install pyenv-virtualenv
+install pyqt
+install python
+install qscintilla2
+install qt
+install r
+install rbenv
+install readline
+install redis
+install ricty
+install rlwrap
+install rmtrash
+install ruby-build
+install rust
+install sbt
+install sfnt2woff
+install sip
+install source-highlight
+install sqlite
+install sshfs
+install suite-sparse
+install swig
+install task
+install tbb
+install tcl-tk
+install texinfo
+install the_silver_searcher
+install tinycdb
+install ttfautohint
+install unison
+install wdiff
+install wget
+install wkhtmltopdf
+install xz
+install zsh
+install zsh-completions
+
+# brew cask
+cask install adobe-air
+cask install adobe-reader
+cask install amazon-music
+cask install audacity
+cask install dropbox
+cask install easysimbl
+cask install firefox
+cask install flash
+cask install flash-player
+cask install font-cinecaption
+cask install font-eriji
+cask install font-fira-sans
+cask install font-honoka-min
+cask install font-kokoro-minchoutai
+cask install font-m-plus
+cask install font-migmix1p
+cask install font-migmix2p
+cask install font-migu1m
+cask install font-noto-sans-japanese
+cask install font-ruriiro
+cask install google-chrome
+cask install google-japanese-ime
+cask install inkscape
+cask install java
+cask install keepassx
+cask install lastfm
+cask install lisanet-gimp
+cask install mactex
+cask install reaper
+cask install silverlight
+cask install steam
+cask install ubersicht
+cask install vagrant
+cask install virtualbox
+cask install vivaldi
+cask install vlc
+cask install wineskin-winery
+cask install xquartz
+cask install zotero

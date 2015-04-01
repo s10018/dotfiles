@@ -1,0 +1,35 @@
+;; 11-howm.el
+
+(setq howm-view-title-header "#")
+(setq howm-view-title-regexp-grep "^\# +[^2]")
+(setq howm-view-title-regexp "^\\#\\( +\\([^2].*\\)\\|\\)$")
+
+(setq howm-directory (concat user-emacs-directory "share/howm"))
+(setq howm-menu-lang 'ja)
+(when (require 'howm nil t)
+	(define-key global-map (kbd "C-c ,,") 'howm-menu)
+	(add-hook 'emacs-startup-hook 'howm-menu)
+	(setq howm-keyword-file (concat howm-directory "/.howm-keys"))
+  (setq howm-history-file (concat howm-directory "/.howm-history"))
+  (setq howm-menu-todo-num 7)
+  (setq howm-menu-schedule-days-before 0)
+  (setq howm-menu-schedule-days 14)
+  (setq howm-view-summary-persistent nil)
+  (setq howm-template "# %title%cursor\n%date\n")
+  (setq howm-file-name-format "%Y-%m-%d-%H%M.md")
+  (define-key howm-mode-map (kbd "C-c C-r") 'remove-howm-buffer)
+  (add-to-list 'auto-mode-alist '("\\.howm$" . howm-mode)))
+
+(defun remove-howm-buffer ()
+  "remove the buffer such as howm-buffer"
+  (interactive)
+  (let ()
+      (when (eq major-mode 'howm-view-summary-mode)
+        (howm-view-restore-window-configuration))
+      (mapc (lambda (b)
+              (when (howm-buffer-p b)
+                (switch-to-buffer b)
+                (set-buffer-modified-p nil)  ;; dangerous!
+                (when (not (buffer-modified-p b))
+                  (kill-buffer b))))
+            (buffer-list))))

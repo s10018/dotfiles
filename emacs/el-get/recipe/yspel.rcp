@@ -1,0 +1,6 @@
+
+(:name yspel
+       :type git
+       :website "https://github.com/yama-natuki/yspel"
+       :description "Emacs lisp proofreading assistance from Emacs"
+       :url "https://github.com/yama-natuki/yspel")

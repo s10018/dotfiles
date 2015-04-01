@@ -1,0 +1,37 @@
+# -*- mode: shell-script -*-
+
+ls-d () {
+    find $1 -maxdepth 1 -type d
+}
+
+usage () {
+    echo "ERROR:" 2>&1
+    echo $1 2>&1
+}
+
+emacs () {
+    ${EMACS_ROOT}/bin/emacsclient -n $1 2> /dev/null
+}
+
+
+#ssh () {
+#    /usr/bin/screen -t $1 /usr/bin/ssh $1
+#}
+
+lv() { 
+    if [ -f $1 ]; then 
+        /usr/bin/less $1 | /usr/local/bin/lv -c
+    fi
+}
+
+sum () {
+    awk '{a=a+$1}END{print a}'
+}
+
+div () {
+    echo "$1/$2" | awk -F/ 'END{print $1/$2}'
+}
+
+count () {
+    perl -CIO -le 'my @lines=<STDIN>; foreach (@lines) {chomp($_); $sum+=length($_);}; print $sum;'
+}

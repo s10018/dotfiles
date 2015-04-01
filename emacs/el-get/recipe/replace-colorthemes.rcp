@@ -1,0 +1,6 @@
+
+(:name replace-colorthemes
+       :type git
+       :website "https://github.com/emacs-jp/replace-colorthemes.git"
+       :description "Replace color-theme with Emacs theme framework"
+       :url "https://github.com/emacs-jp/replace-colorthemes.git")

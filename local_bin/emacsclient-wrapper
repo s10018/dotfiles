@@ -1,0 +1,5 @@
+# -*- mode:shell-script -*-
+
+EMACS_CLIENT="${EMACS_ROOT}/bin/emacsclient"
+
+$EMACS_CLIENT -n "$*"
