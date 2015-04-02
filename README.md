@@ -11,9 +11,9 @@
 2. 別に保存した新しいOSからクリーンインストール
 3. sshの設定を戻しておく
 4. Apple store関係をインストール
-- Xcode
-- OneDrive
-- 夜フクロウ
+   - Xcode
+   - OneDrive
+   - 夜フクロウ
 5. 設定ファイルのリンクを貼っておく (./scripts/link_files.sh)
 6. brew関係インストール (./script/brew_startup.sh)
 7. zshの設定  (./script/zsh_startup.sh)
@@ -23,5 +23,5 @@
 ## TODO
 
 - deploy command
-- check this
-- change helm-filelist
+- check these scripts
+- change how to fetch helm-filelist's code
