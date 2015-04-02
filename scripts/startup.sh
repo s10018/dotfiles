@@ -5,8 +5,6 @@ mkdir -p ~/local/etc/
 
 ./scripts/link_files.sh
 
-### ln -sfn ~/OneDrive/ssh_dir ~/.ssh # need dotfile repos
-
 wget https://raw.githubusercontent.com/glidenote/rpbcopy/master/pbcopy.plist -O ~/Library/LaunchAgents/pbcopy.plist
 
 ./scripts/brew_startup.sh
