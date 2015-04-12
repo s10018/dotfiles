@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 
 bindkey '^xb' anyframe-widget-cdr
 bindkey '^x^b' anyframe-widget-checkout-git-branch

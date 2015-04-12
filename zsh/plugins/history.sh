@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 
 ## history setting
 setopt append_history
