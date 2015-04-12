@@ -7,9 +7,9 @@
 
 (use-package cperl-mode
   :init
+  :config
   (bind-keys :map cperl-mode-map
              ("C-c ;" . cperl-comment-region))
-  :config
   (defalias 'perl-mode 'cperl-mode)
   (setq cperl-electric-keywords nil
         cperl-hairy nil

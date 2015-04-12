@@ -7,4 +7,5 @@
         flymake-gui-warnings-enabled nil)
   (eval-after-load "ispell"
     '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]")))
+  :config
   (unbind-key "C-j" flyspell-mode-map))

@@ -4,3 +4,4 @@ zsh/alias	~/.alias
 zsh/funcs	~/.funcs
 zsh/envs	~/.envs
 zsh/zshenv	~/.zshenv
+zsh/zshrc	~/.zshrc

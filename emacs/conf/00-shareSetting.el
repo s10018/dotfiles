@@ -22,12 +22,15 @@
 ;; setting PATH
 (use-package exec-path-from-shell
   :config
+  (setq exec-path-from-shell-arguments '("-l"))
   (setq exec-path-from-shell-variables
-        '("LD_LIBRARY_PATH" "PATH" "MANPATH"
+        '("LD_LIBRARY_PATH" "PATH" "MANPATH" "PYENV_ROOT"
           "PYTHONPATH" "DYLD_LIBRARY_PATH" "PYENV_ROOT" "INFOPATH" "C_INCLUDE_PATH"))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "SHELL")
-  (exec-path-from-shell-copy-env "C_INCLUDE_PATH"))
+  (exec-path-from-shell-copy-env "C_INCLUDE_PATH")
+  (exec-path-from-shell-copy-env "PYENV_ROOT")
+)
 
 ;; adding info path
 (use-package info
@@ -118,6 +121,7 @@
   (setq tramp-default-method "scp"))
 
 (use-package open-junk-file
+  :config
   (setq open-junk-file-format "~/local/tmp/%Y-%m-%d-%H%M%S."))
 
 

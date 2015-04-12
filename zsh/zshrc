@@ -1,125 +1,48 @@
+# -*- mode: sh -*-
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="ys"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby osx bundler brew rails emoji-clock)
-
-source $ZSH/oh-my-zsh.sh
+if [[ $TERM != "screen" ]] exec screen -D -RR
 
 # User configuration
-
 typeset -U path cdpath fpath manpath
 
-test -f $HOME/.alias && source $HOME/.alias
-test -f $HOME/.funcs && source $HOME/.funcs
-
-autoload -U compinit; compinit
+# autoload -U compinit; compinit
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                              /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin \
                              /usr/local/git/bin
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 fpath=(~/.zsh-completions $fpath)
+autoload -Uz add-zsh-hock
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 
-## history setting
-setopt append_history
-setopt hist_ignore_dups
-setopt share_history
-setopt hist_no_store
-setopt hist_ignore_dups
-setopt EXTENDED_HISTORY
+test -f "$HOME/.envs" && source "$HOME/.envs"
+test -f "$HOME/.alias" && source "$HOME/.alias"
+test -f "$HOME/.funcs" && source "$HOME/.funcs"
 
-export HISTSIZE=100000
-export HISTCONTROL=erasedups
-export HISTIGNORE="fg*:bg*:history*:cd*"
-export PROMPT_COMMAND="history -a"
-export HISTFILE=${HOME}/.zsh_history
-export SAVEHIST=100000
 
-## rbenv setting
-eval "$(rbenv init - zsh)"
+export ZSH_LOCAL_DIR="$HOME/local/etc/zsh"
 
-## pyenv setting
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-    export PATH=$HOME/.pyenv/shims:$PATH
+if [ ! -f "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
+    curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > "$ZSH_LOCAL_DIR/antigen.zsh"
 fi
+source "$ZSH_LOCAL_DIR/antigen.zsh"
 
-## perlbrew setting
-export PERLBREW_ROOT=$HOME/.perlbrew
-source ~/.perlbrew/etc/bashrc
+antigen bundle sorin-ionescu/prezto
+if [ ! -L "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
+    ln -sfn ~/.antigen/repos/.zprezto ~/.zprezto
+    ln -sfn ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+fi
+antigen bundle mollifier/anyframe
 
-alias rake="noglob rake"
+source "$ZSH_LOCAL_DIR/anyframe.sh"
+source "$ZSH_LOCAL_DIR/history.sh"
+source "$ZSH_LOCAL_DIR/editor.sh"
+source "$ZSH_LOCAL_DIR/program_plugin.sh"
+source "$ZSH_LOCAL_DIR/emacs-term.sh"
+source "$ZSH_LOCAL_DIR/yukitask.sh"
 
+# PATHの重複除く
 export PATH=`echo $PATH | perl -e 'my %path={}; my @list=(); foreach my $l (split(/:/, <STDIN>)){if(!exists($path{$l})){push(@list, $l);$path{$l}=1;}} print join(":", @list)'`
 
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"

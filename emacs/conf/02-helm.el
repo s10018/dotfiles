@@ -1,9 +1,8 @@
 
 ;; helm-filelist
 (use-package helm-mode
-  :commands helm-mini
   :if (and (require 'helm-filelist nil t) (require 'helm-ls-git nil t))
-  :init
+  :config
   (setq helm-filelist-file-name "/tmp/filelist"
         helm-filelist-grep-command "ag --no-numbers"
         helm-source-filelist-d (helm-source-filelist))
@@ -13,9 +12,8 @@
                                     helm-source-recentf
                                     helm-source-buffer-not-found
                                     helm-source-filelist-d))
-  :bind
-  (("M-y" . helm-show-kill-ring)
-   ("C-;" . helm-mini)))
+  (bind-key* "M-y" 'helm-show-kill-ring)
+  (bind-key* "C-;" 'helm-mini))
 
 ;; recentf settings
 (use-package recentf

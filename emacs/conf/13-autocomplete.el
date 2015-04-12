@@ -2,9 +2,9 @@
 (use-package auto-complete-config
   :if (require 'cl)
   :init
+  :config
   (bind-keys :map ac-completing-map
              ("C-g" . ac-stop))
-  :config
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/share/ac-dict")
   (setq ac-comphist-file "~/.emacs.d/cached/ac-comphist.dat"
         ac-ignore-case nil)

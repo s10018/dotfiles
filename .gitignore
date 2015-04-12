@@ -1,3 +1,16 @@
 .DS_store
 emacs/elisp/*.elc
 emacs/conf/*.elc
+/emacs/el-get/.loaddefs.elc
+/emacs/el-get/.status.el
+/emacs/el-get/helm-filelist/
+/emacs/el-get/howm/
+/emacs/el-get/jazzradio/
+/emacs/el-get/replace-colorthemes/
+/emacs/server/
+/emacs/tramp
+/emacs/etc/recentf-list.el
+/emacs/share
+/emacs/.cask/
+antigen.zsh
+/emacs/eshell/

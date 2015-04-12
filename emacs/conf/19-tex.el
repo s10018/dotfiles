@@ -71,8 +71,10 @@
 
 (add-hook 'LaTeX-mode-hook 'flymake-mode-on)
 
-(when (require 'zotelo nil t)
+(use-package zotelo
+  :config
   (add-hook 'LaTeX-mode-hook 'zotelo-minor-mode)
+  (setq zotelo-translators '())
   (add-to-list 'zotelo-translators 
                '(Better-BibLaTeX "f895aa0d-f28e-47fe-b247-2ea77c6ed583" "bib"))
   (setq zotelo-default-translator 'Better-BibLaTeX))

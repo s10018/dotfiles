@@ -17,7 +17,7 @@
 
 ;; highlight indent
 (use-package highlight-indentation
-  :init
+  :config
   (set-face-background 'highlight-indentation-face "#664D2A")
   (set-face-background 'highlight-indentation-current-column-face "#664D2A"))
 

@@ -15,6 +15,37 @@ tap s10018/tl
 tap sanemat/font
 tap uetchy/nlp
 
+install brew-cask
+install zsh
+install lv source-highlight
+install coreutils
+install screen
+install gawk
+install gnu-sed
+install wget
+install peco
+install rmtrash
+
+install Caskroom/cask/xquartz
+install ricty
+cask install google-japanese-ime
+cask install google-chrome
+cask install font-cinecaption
+cask install font-eriji
+cask install font-fira-sans
+cask install font-honoka-min
+cask install font-kokoro-minchoutai
+cask install font-m-plus
+cask install font-migmix1p
+cask install font-migmix2p
+cask install font-migu1m
+cask install font-noto-sans-japanese
+cask install font-ruriiro
+cask install keepassx
+
+install emacs --with-cocoa --gnutls --imagemagick --with-xml2 --verbose
+install cask
+
 # brew
 install aspell
 install atk
@@ -23,11 +54,9 @@ install automake
 install bact
 install bison
 install boost
-install brew-cask
 install cabal-install
 install cabocha
 install cairo
-install cask
 install ckylark
 install cloog
 install cloog-ppl015
@@ -38,13 +67,11 @@ install coreutils
 install crf++
 install ctags
 install dmd
-install emacs
 install figlet
 install fontconfig
 install fontforge
 install freetype
 install gauche
-install gawk
 install gcc
 install gcc44
 install gcc46
@@ -90,7 +117,6 @@ install libtiff
 install libtool
 install little-cms2
 install lua
-install lv
 install make
 install maven
 install mecab
@@ -170,22 +196,9 @@ cask install easysimbl
 cask install firefox
 cask install flash
 cask install flash-player
-cask install font-cinecaption
-cask install font-eriji
-cask install font-fira-sans
-cask install font-honoka-min
-cask install font-kokoro-minchoutai
-cask install font-m-plus
-cask install font-migmix1p
-cask install font-migmix2p
-cask install font-migu1m
-cask install font-noto-sans-japanese
-cask install font-ruriiro
-cask install google-chrome
-cask install google-japanese-ime
 cask install inkscape
 cask install java
-cask install keepassx
+
 cask install lastfm
 cask install lisanet-gimp
 cask install mactex
@@ -193,7 +206,6 @@ cask install reaper
 cask install silverlight
 cask install steam
 cask install ubersicht
-cask install vagrant
 cask install virtualbox
 cask install vlc
 cask install wineskin-winery
