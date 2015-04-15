@@ -43,6 +43,5 @@ source "$ZSH_LOCAL_DIR/yukitask.sh"
 # PATHの重複除く
 export PATH=`echo $PATH | perl -e 'my %path={}; my @list=(); foreach my $l (split(/:/, <STDIN>)){if(!exists($path{$l})){push(@list, $l);$path{$l}=1;}} print join(":", @list)'`
 
-
-
-
+test -f "$HOME/.alias" && source "$HOME/.alias"
+test -f "$HOME/.funcs" && source "$HOME/.funcs"

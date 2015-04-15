@@ -1,213 +1,179 @@
-
-# brew tap
-tap caskroom/cask
-tap caskroom/fonts
-tap gwtnb/pficommon
-tap homebrew/boneyard
-tap homebrew/dupes
-tap homebrew/science
-tap homebrew/versions
-tap mistydemeo/formulae
-tap rcmdnk/file
-tap rcmdnk/rcmdnkcask
-tap s10018/cask
-tap s10018/tl
-tap sanemat/font
-tap uetchy/nlp
-
-install brew-cask
-install zsh
-install lv source-highlight
-install coreutils
-install screen
-install gawk
-install gnu-sed
-install wget
-install peco
-install rmtrash
-
-install Caskroom/cask/xquartz
-install ricty
-cask install google-japanese-ime
-cask install google-chrome
-cask install font-cinecaption
-cask install font-eriji
-cask install font-fira-sans
-cask install font-honoka-min
-cask install font-kokoro-minchoutai
-cask install font-m-plus
-cask install font-migmix1p
-cask install font-migmix2p
-cask install font-migu1m
-cask install font-noto-sans-japanese
-cask install font-ruriiro
-cask install keepassx
-
-install emacs --with-cocoa --gnutls --imagemagick --with-xml2 --verbose
-install cask
-
-# brew
-install aspell
-install atk
-install autoconf
-install automake
-install bact
-install bison
-install boost
-install cabal-install
-install cabocha
-install cairo
-install ckylark
-install cloog
-install cloog-ppl015
-install cloog018
-install cmake
-install cmigemo
-install coreutils
-install crf++
-install ctags
-install dmd
-install figlet
-install fontconfig
-install fontforge
-install freetype
-install gauche
-install gcc
-install gcc44
-install gcc46
-install gd
-install gdbm
-install gdk-pixbuf
-install gettext
-install ghc
-install git
-install glib
-install global
-install gmp
-install gmp4
-install gnu-getopt
-install gnu-sed
-install gnuplot
-install gnutls
-install go
-install gobject-introspection
-install gradle
-install graphviz
-install groovy
-install gtk+
-install harfbuzz
-install icdiff
-install icu4c
-install isl
-install isl011
-install jpeg
-install jq
-install kakasi
-install kyoto-cabinet
-install kytea
-install libffi
-install liblbfgs
-install liblinear
-install libmarisa
-install libmpc
-install libmpc08
-install libpng
-install libtasn1
-install libtiff
-install libtool
-install little-cms2
-install lua
-install make
-install maven
-install mecab
-install mecab-ipadic
-install mecab-jumandic
-install mecab-unidic
-install mercurial
-install mongodb
-install mpfr
-install mpfr2
-install mplayer
-install msgpack
-install nettle
-install nkf
-install o-make
-install objective-caml
-install openjpeg
-install openssl
-install ossp-uuid
-install osxfuse
-install pandoc
-install pango
-install parallel
-install pcre
-install pdf2htmlex
-install peco
-install perl-build
-install pficommon
-install pixman
-install pkg-config
-install plenv
-install poppler
-install ppl011
-install pyenv-virtualenv
-install pyqt
-install python
-install qscintilla2
-install qt
-install r
-install readline
-install redis
-install ricty
-install rlwrap
-install rmtrash
-install ruby-build
-install rust
-install sbt
-install sfnt2woff
-install sip
-install source-highlight
-install sqlite
-install sshfs
-install suite-sparse
-install swig
-install task
-install tbb
-install tcl-tk
-install texinfo
-install the_silver_searcher
-install tinycdb
-install ttfautohint
-install unison
-install wdiff
-install wget
-install wkhtmltopdf
-install xz
-install zsh
-install zsh-completions
-
-# brew cask
-cask install adobe-air
-cask install adobe-reader
-cask install amazon-music
-cask install audacity
-cask install dropbox
-cask install easysimbl
-cask install firefox
-cask install flash
-cask install flash-player
-cask install inkscape
-cask install java
-
-cask install lastfm
-cask install lisanet-gimp
-cask install mactex
-cask install reaper
-cask install silverlight
-cask install steam
-cask install ubersicht
-cask install virtualbox
-cask install vlc
-cask install wineskin-winery
-cask install xquartz
-cask install zotero
+tap 'caskroom/cask'
+tap 'caskroom/fonts'
+tap 'gwtnb/pficommon'
+tap 'homebrew/boneyard'
+tap 'homebrew/brewdler'
+tap 'homebrew/dupes'
+tap 'homebrew/science'
+tap 'homebrew/versions'
+tap 'mistydemeo/formulae'
+tap 'rcmdnk/file'
+tap 'rcmdnk/rcmdnkcask'
+tap 's10018/cask'
+tap 's10018/tl'
+tap 'sanemat/font'
+tap 'uetchy/nlp'
+brew 'aspell'
+brew 'atk'
+brew 'autoconf'
+brew 'automake'
+brew 'bact'
+brew 'bison'
+brew 'boost'
+brew 'brew-cask'
+brew 'cabal-install'
+brew 'cabocha'
+brew 'cairo'
+brew 'cask'
+brew 'ckylark', args: ['HEAD']
+brew 'cloog'
+brew 'cmake'
+brew 'cmigemo'
+brew 'coreutils'
+brew 'crf++'
+brew 'ctags'
+brew 'czmq'
+brew 'dmd'
+brew 'emacs', args: ['with-cocoa']
+brew 'figlet'
+brew 'fontconfig'
+brew 'fontforge'
+brew 'freetype'
+brew 'gauche'
+brew 'gawk'
+brew 'gcc'
+brew 'gd'
+brew 'gdbm'
+brew 'gdk-pixbuf'
+brew 'gettext'
+brew 'ghc'
+brew 'git'
+brew 'glib'
+brew 'global'
+brew 'gmp'
+brew 'gmp4'
+brew 'gnu-getopt'
+brew 'gnu-sed'
+brew 'gnuplot'
+brew 'gnutls'
+brew 'go'
+brew 'gobject-introspection'
+brew 'gradle'
+brew 'graphviz'
+brew 'groovy'
+brew 'gtk+'
+brew 'harfbuzz'
+brew 'icdiff'
+brew 'icu4c'
+brew 'isl'
+brew 'jpeg'
+brew 'jq'
+brew 'kakasi'
+brew 'kyoto-cabinet'
+brew 'kytea'
+brew 'libffi'
+brew 'liblinear'
+brew 'libmarisa'
+brew 'libmpc'
+brew 'libpng'
+brew 'libtasn1'
+brew 'libtiff'
+brew 'libtool'
+brew 'little-cms2'
+brew 'lua'
+brew 'lv'
+brew 'mecab'
+brew 'mecab-ipadic'
+brew 'mecab-jumandic'
+brew 'mecab-unidic'
+brew 'mercurial'
+brew 'mongodb'
+brew 'mpfr'
+brew 'mplayer'
+brew 'msgpack'
+brew 'nettle'
+brew 'nkf'
+brew 'objective-caml'
+brew 'openjpeg'
+brew 'openssl'
+brew 'ossp-uuid'
+brew 'pandoc'
+brew 'pango'
+brew 'parallel'
+brew 'pcre'
+brew 'pdf2htmlex'
+brew 'peco'
+brew 'perl-build'
+brew 'pixman'
+brew 'pkg-config'
+brew 'poppler'
+brew 'pyenv-virtualenv'
+brew 'pyqt'
+brew 'python'
+brew 'qscintilla2'
+brew 'qt'
+brew 'readline'
+brew 'redis'
+brew 'rlwrap'
+brew 'rmtrash'
+brew 'ruby-build'
+brew 'rust'
+brew 'sbt'
+brew 'shellcheck'
+brew 'sip'
+brew 'sl'
+brew 'source-highlight'
+brew 'sqlite'
+brew 'swig'
+brew 'task'
+brew 'tbb'
+brew 'texinfo'
+brew 'the_silver_searcher'
+brew 'tinycdb'
+brew 'ttfautohint'
+brew 'unison'
+brew 'wdiff'
+brew 'wget'
+brew 'xz'
+brew 'yasm'
+brew 'zeromq'
+brew 'zsh'
+brew 'zsh-completions'
+cask 'adobe-air'
+cask 'adobe-reader'
+cask 'amazon-music'
+cask 'audacity'
+cask 'dropbox'
+cask 'easysimbl'
+cask 'firefox'
+cask 'flash'
+cask 'flash-player'
+cask 'font-cinecaption'
+cask 'font-eriji'
+cask 'font-fira-sans'
+cask 'font-honoka-min'
+cask 'font-kokoro-minchoutai'
+cask 'font-m-plus'
+cask 'font-migmix1p'
+cask 'font-migmix2p'
+cask 'font-migu1m'
+cask 'font-noto-sans-japanese'
+cask 'font-ruriiro'
+cask 'google-chrome'
+cask 'google-japanese-ime'
+cask 'inkscape'
+cask 'itsycal'
+cask 'java'
+cask 'keepassx'
+cask 'lastfm'
+cask 'lisanet-gimp'
+cask 'mactex'
+cask 'reaper'
+cask 'silverlight'
+cask 'steam'
+cask 'ubersicht'
+cask 'virtualbox'
+cask 'vlc'
+cask 'wineskin-winery'
+cask 'xquartz'
+cask 'zotero'

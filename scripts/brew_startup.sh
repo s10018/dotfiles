@@ -9,7 +9,8 @@ source .bash_profile
 
 brew update
 
-./brew/cask.sh brewfile
+brew tap Homebrew/brewdler
+brew brewdle
 
 sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
 chsh -s /usr/local/bin/zsh
