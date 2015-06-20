@@ -3,6 +3,8 @@
 if [[ $TERM != "screen" ]] exec screen -D -RR
 
 # User configuration
+autoload -U compinit
+compinit -u
 typeset -U path cdpath fpath manpath
 
 # autoload -U compinit; compinit
@@ -11,8 +13,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                              /usr/local/git/bin
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 fpath=(~/.zsh-completions $fpath)
-autoload -Uz add-zsh-hock
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 test -f "$HOME/.envs" && source "$HOME/.envs"
 test -f "$HOME/.alias" && source "$HOME/.alias"
@@ -32,6 +33,7 @@ if [ ! -L "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
     ln -sfn ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
 fi
 antigen bundle mollifier/anyframe
+antigen bundle zsh-users/zsh-completions src
 
 source "$ZSH_LOCAL_DIR/anyframe.sh"
 source "$ZSH_LOCAL_DIR/history.sh"

@@ -9,15 +9,16 @@
 
 (defun copy-server-file (lst)
   "copy file the server in the lst"
-  (copy-file "~/.emacs.d/server/server" (concat "/pine13:.emacs.d/server/server") t))
+  (dolist (l lst)
+    (copy-file "~/.emacs.d/server/server"
+               (concat "/ssh:" l ":.emacs.d/server/server") t))
+  )
 
 
 (setq server-use-tcp t
       server-port    9999)
-;; (unless (server-running-p)
-  (server-start)
-  (copy-server-file '("pine13"))
-;; )
+(server-start)
+(copy-server-file '("pine13" "mednlp"))
 
 ;; setting PATH
 (use-package exec-path-from-shell
@@ -96,16 +97,6 @@
   :config
   (cua-mode t)
   (setq cua-enable-cua-keys nil))
-
-;; (use-package tempbuf
-;;   :config
-;;   (add-hook 'debugger-mode-hook 'turn-on-tempbuf-mode)
-;;   (add-hook 'fundamental-mode-hook 'turn-on-tempbuf-mode)
-;;   (add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
-;;   (add-hook 'custom-mode-hook 'turn-on-tempbuf-mode)
-;;   (add-hook 'compile-mode-hook 'turn-on-tempbuf-mode)
-;;   (add-hook 'help-mode-hook 'turn-on-tempbuf-mode)
-;;   (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode))
 
 (use-package magit
   :bind

@@ -1,0 +1,4 @@
+(setq el-get-lock-package-versions
+      '((init-loader :checksum "1f28a0b801cbb08aa9b47fd15ceab243a2bc064c")))
+(setq el-get-lock-locked-packages 'nil)
+(setq el-get-lock-unlocked-packages 'nil)

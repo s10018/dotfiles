@@ -16,7 +16,6 @@
 
 ;; http://d.hatena.ne.jp/syohex/20111026/1319606395
 ;; .emacs等設定ファイルに追加
-
 ;; Improve at 2013年 9月 14日
 (defun elscreen-get-current-directory (buf)
   (with-current-buffer buf

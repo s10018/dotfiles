@@ -3,6 +3,20 @@
 
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
+(use-package haskell
+  :config
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (setq flycheck-checker 'haskell-hlint)
+              (setq flycheck-disabled-checkers '(haskell-ghc))
+              (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+              (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+              (add-hook 'haskell-mode-hook 'font-lock-mode)
+              (add-hook 'haskell-mode-hook 'imenu-add-menubar-index)
+              (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+              (flycheck-mode 1)
+              )))
+
 ;; scala
 (when (require 'scala-mode2 nil t)
   (when (require 'ensime nil t)
@@ -22,11 +36,13 @@
 (put 'upcase-region 'disabled nil)
 
 ;; php-mode
-(when (require 'php-mode nil t)
+(use-package php-mode
+  :config
   (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
   (add-hook 'php-mode-hook
             (lambda ()
-              (setq php-mode-force-pear t))))
+              (setq php-mode-force-pear t)))
+  )
 
 ;; octave mode
 (autoload 'octave-mode "octave-mod" nil t)
