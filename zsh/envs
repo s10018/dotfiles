@@ -53,4 +53,3 @@ export DOCKER_CERT_PATH=/Users/mai-om/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 export HOMEBREW_BREWFILE=$HOME/.brewfile
-

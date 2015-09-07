@@ -18,7 +18,7 @@
 (setq server-use-tcp t
       server-port    9999)
 (server-start)
-(copy-server-file '("pine13" "mednlp"))
+(copy-server-file '("pine13")) ;; "mednlp"))
 
 ;; setting PATH
 (use-package exec-path-from-shell
@@ -85,6 +85,9 @@
   :init
   (setq auto-save-list-file-prefix nil)
   :config
+  (setq auto-save-buffers-enhanced-save-scratch-buffer-to-file-p t)
+  (setq auto-save-buffers-enhanced-file-related-with-scratch-buffer
+        (locate-user-emacs-file "scratch"))
   (auto-save-buffers-enhanced t)
   (add-hook 'makefile-mode-hook
             (function (lambda ()
@@ -125,3 +128,10 @@
 
 (use-package volume
   )
+
+(use-package ace-isearch
+  :config
+  ;; (setq ace-isearch-use-function-from-isearch nil)
+  ;; (define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch)
+  (global-ace-isearch-mode 1))
+

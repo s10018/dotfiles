@@ -132,3 +132,8 @@
 (el-get-bundle helm-filelist)
 (el-get-bundle tarao/el-get-lock)
 (el-get-bundle auto-save-buffers-enhanced)
+(el-get-bundle graphviz-dot-mode)
+
+(el-get-bundle avy)
+(el-get-bundle ace-isearch)
+(el-get-bundle lua-mode)

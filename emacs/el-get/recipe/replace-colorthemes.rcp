@@ -1,4 +1,3 @@
-
 (:name replace-colorthemes
        :type git
        :website "https://github.com/emacs-jp/replace-colorthemes.git"

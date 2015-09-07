@@ -18,9 +18,11 @@
               )))
 
 ;; scala
-(when (require 'scala-mode2 nil t)
-  (when (require 'ensime nil t)
-    (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)))
+(use-package scala-mode2
+  :if (require 'ensime nil t)
+  :config
+  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+  )
 
 ;; scheme (gosh)
 (when (require 'scheme nil t)
@@ -59,3 +61,9 @@
 (autoload 'apples-mode "apples-mode" "Happy AppleScripting!" t)
 (add-to-list 'auto-mode-alist '("\\.\\(applescri\\|sc\\)pt\\'" . apples-mode))
 
+;; lua mode
+
+(use-package lua-mode
+  :mode "\\.lua$"
+  :interpreter "lua"
+  )

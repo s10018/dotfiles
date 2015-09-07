@@ -12,8 +12,18 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
-bindkey '^r' anyframe-widget-execute-history
-bindkey '^x^r' anyframe-widget-execute-history
+function anyframe-widget-insert-history () {
+    anyframe-source-history \
+        | anyframe-selector-auto "$LBUFFER" \
+        | anyframe-action-insert
+}
+autoload -Uz -- anyframe-widget-insert-history
+zle -N -- anyframe-widget-insert-history
+
+# bindkey '^r' anyframe-widget-execute-history
+# bindkey '^x^r' anyframe-widget-execute-history
+bindkey '^r' anyframe-widget-insert-history
+bindkey '^x^r' anyframe-widget-insert-history
 
 bindkey '^xi' anyframe-widget-put-history
 bindkey '^x^i' anyframe-widget-put-history

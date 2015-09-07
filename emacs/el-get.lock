@@ -1,4 +1,10 @@
 (setq el-get-lock-package-versions
-      '((init-loader :checksum "1f28a0b801cbb08aa9b47fd15ceab243a2bc064c")))
+      '((lua-mode :checksum "37f3c4284c45cd6c7b85074687c2e1f8e734622e")
+        (ample-regexps :checksum "d5194b289f45c1aafe028a4a0b699b48d2938867")
+        (avy :checksum "30067ddc09eefddae4ece065f60cc52a55ed76d7")
+        (ace-isearch :checksum "3324a214f558ea9ded28eff7e74c80cd8cb561cf")
+        (ace-jump-mode :checksum "8351e2df4fbbeb2a4003f2fb39f46d33803f3dac")
+        (graphviz-dot-mode :checksum "d11f15b490be23eaabd65ee791c8810f4cf3ebec")
+        (init-loader :checksum "1f28a0b801cbb08aa9b47fd15ceab243a2bc064c")))
 (setq el-get-lock-locked-packages 'nil)
 (setq el-get-lock-unlocked-packages 'nil)

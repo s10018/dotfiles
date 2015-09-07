@@ -1,4 +1,4 @@
-zsh/plugins	~/local/etc/zsh
+local/etc/zsh	~/local/etc/zsh
 peco	~/.peco
 emacs	~/.emacs.d
-local_bin	~/local/bin
+local/bin	~/local/bin

@@ -1,0 +1,5 @@
+(:name graphviz-dot-mode
+       :type git
+       :website "http://ppareit.github.io/graphviz-dot-mode/"
+       :description "Replace color-theme with Emacs theme framework"
+       :url "https://github.com/ppareit/graphviz-dot-mode.git")

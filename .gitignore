@@ -14,3 +14,4 @@ emacs/conf/*.elc
 /emacs/.cask/
 antigen.zsh
 /emacs/eshell/
+/emacs/scratch

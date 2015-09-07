@@ -4,28 +4,33 @@ if [[ $TERM != "screen" ]] exec screen -D -RR
 
 # User configuration
 autoload -U compinit
+autoload -Uz zmv
 compinit -u
 typeset -U path cdpath fpath manpath
 
-# autoload -U compinit; compinit
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                              /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin \
                              /usr/local/git/bin
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-fpath=(~/.zsh-completions $fpath)
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
+
+fpath=($HOME/.zsh-completions $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($HOME/local/etc/zsh/functions/ $fpath)
 
 test -f "$HOME/.envs" && source "$HOME/.envs"
 test -f "$HOME/.alias" && source "$HOME/.alias"
 test -f "$HOME/.funcs" && source "$HOME/.funcs"
 
 
-export ZSH_LOCAL_DIR="$HOME/local/etc/zsh"
-
-if [ ! -f "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
-    curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > "$ZSH_LOCAL_DIR/antigen.zsh"
+if [ ! -f "$HOME/.antigen/antigen.zsh" ]; then
+    git clone https://github.com/zsh-users/antigen "$HOME/.antigen"
 fi
-source "$ZSH_LOCAL_DIR/antigen.zsh"
+source "$HOME/.antigen/antigen.zsh"
 
 antigen bundle sorin-ionescu/prezto
 if [ ! -L "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
@@ -34,16 +39,24 @@ if [ ! -L "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
 fi
 antigen bundle mollifier/anyframe
 antigen bundle zsh-users/zsh-completions src
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+export ANTIGEN_PLUGIN_UPDATE_DAYS=5
 
+export ZSH_LOCAL_DIR="$HOME/local/etc/zsh"
 source "$ZSH_LOCAL_DIR/anyframe.sh"
 source "$ZSH_LOCAL_DIR/history.sh"
 source "$ZSH_LOCAL_DIR/editor.sh"
 source "$ZSH_LOCAL_DIR/program_plugin.sh"
 source "$ZSH_LOCAL_DIR/emacs-term.sh"
-source "$ZSH_LOCAL_DIR/yukitask.sh"
 
 # PATHの重複除く
 export PATH=`echo $PATH | perl -e 'my %path={}; my @list=(); foreach my $l (split(/:/, <STDIN>)){if(!exists($path{$l})){push(@list, $l);$path{$l}=1;}} print join(":", @list)'`
 
 test -f "$HOME/.alias" && source "$HOME/.alias"
 test -f "$HOME/.funcs" && source "$HOME/.funcs"
+
+
+. /Users/mai-om/local/dist/torch/install/bin/torch-activate
+
+PERL_MB_OPT="--install_base \"/Users/mai-om/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/mai-om/perl5"; export PERL_MM_OPT;

@@ -1,0 +1,35 @@
+#compdef mecab
+
+_mecab () {
+    local dicdir output_format_types
+
+    dicdir=( $( ls `mecab-config --dicdir` | parallel echo `mecab-config --dicdir`/{}  | tr '\n' ' ' ) )
+    output_format_types=( $(grep -e unk-format -e bos-format -e eos-format `mecab-config --dicdir`/*/dicrc | awk -F: '{print $2}' | awk -F" " '{print $1}' | awk -F"-" '{print $3}' | sort | uniq) )
+
+    _arguments \
+        '(-r, --rcfile)'{-r,--rcfile}'[use FILE as resource file]:rcfile:_files' \
+        '(-u, --userdic)'{-u,--userdic}'[use FILE as a user dictionary]:userdic:_files' \
+        '(- *)'{-P,--dump-config}'[dump MeCab parameters]' \
+        '(- *)'{-D,--dictionary-info}'[show dictionary information and exit]' \
+        '(-d, --dicdir)'{-d,--dicdir}'[set DIR as a system dicdir]:dirdir:->dicdir' \
+        '(-o, --output)'{-o,--output}'[set the output file name]:output file:_files' \
+        '(-O, --output-format-type)'{-O,--output-format-type}'[set output format type]:output format:->oformat' \
+        '(- *)'{-h,--help}'[show this help and exit.]' \
+        '(- *)'{-v,--version}'[show the version and exit.]' \
+        '(-m, --marginal)'{-m,--marginal}'[output marginal probability (default false)]' \
+        '(-a, --all-morphs)'{-a,--all-morphs}'[output all morphs(default false)]' \
+        '*: :_files' && return 0
+
+    case $state in
+        dicdir)
+            compadd $dicdir
+            ;;
+        oformat)
+            compadd wakati dump $output_format_types
+            ;;
+    esac
+}
+
+# Local Variables:
+# mode: Shell-Script
+# End:
