@@ -46,7 +46,7 @@
 (el-get-bundle fringe-helper)
 (el-get-bundle fuzzy)
 (el-get-bundle git-commit-mode)
-(el-get-bundle git-rebase-mode)
+
 (el-get-bundle gnuplot-mode)
 (el-get-bundle go-mode)
 (el-get-bundle google-c-style)
@@ -83,7 +83,6 @@
 (el-get-bundle markdown-mode)
 (el-get-bundle migemo)
 (el-get-bundle molokai-theme)
-(el-get-bundle multi-eshell)
 (el-get-bundle open-junk-file)
 (el-get-bundle package)
 (el-get-bundle package-build)
@@ -111,7 +110,6 @@
 (el-get-bundle shut-up)
 (el-get-bundle solarized-theme)
 (el-get-bundle stem)
-(el-get-bundle sudden-death)
 (el-get-bundle sudoku)
 (el-get-bundle sws-mode)
 (el-get-bundle tab-group)
@@ -128,7 +126,6 @@
 (el-get-bundle yaxception)
 (el-get-bundle zotelo)
 (el-get-bundle replace-colorthemes)
-(el-get-bundle jazzradio)
 (el-get-bundle helm-filelist)
 (el-get-bundle tarao/el-get-lock)
 (el-get-bundle auto-save-buffers-enhanced)
@@ -137,3 +134,20 @@
 (el-get-bundle avy)
 (el-get-bundle ace-isearch)
 (el-get-bundle lua-mode)
+(el-get-bundle base16)
+(el-get-bundle julia-mode)
+(el-get-bundle smyx)
+(el-get-bundle flycheck-pos-tip)
+
+(el-get-bundle multiple-cursors)
+(el-get-bundle smartrep)
+
+(el-get-bundle indent-guide)
+
+(el-get-bundle ananthakumaran/tide)
+
+(el-get-bundle magit)
+
+(el-get-bundle toml-mode)
+
+(el-get-bundle jdee-emacs/jdee)

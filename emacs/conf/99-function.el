@@ -123,7 +123,6 @@
   (interactive)
   (insert (buffer-name)))
 
-
 ;; http://ynomura.dip.jp/archives/2010/07/emacs.html
 (defun kill-ring-save-current-word ()
   "Save current word to kill ring as if killed, but don't kill it."

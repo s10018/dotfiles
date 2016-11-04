@@ -2,7 +2,6 @@
 ;; Settings until starting loading conf/*.el
 ;;
 
-
 (setq debug-on-error t)
 
 (when (< emacs-major-version 23)
@@ -13,6 +12,8 @@
 (setq max-lisp-eval-depth 50000)
 (setq max-specpdl-size 60000)
 
+(setenv "TERM" "xterm")
+(setq load-file-name nil)
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
@@ -22,7 +23,8 @@
         package-user-dir (expand-file-name "elpa" versioned-dir)))
 
 ;; el-get setting
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+(add-to-list 'load-path (concat el-get-dir "/" "el-get"))
+
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -32,8 +34,8 @@
 
 
 (when (require 'el-get nil t)
+  (setq el-get-user-package-directory (locate-user-emacs-file "init"))
   (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipe")
-  ;; (el-get 'sync '(replace-colorthemes jazzradio helm-filelist))
   (load (locate-user-emacs-file "ElBundle"))
   (el-get-bundle tarao/el-get-lock)
   (el-get-lock)
@@ -68,12 +70,13 @@
   (init-loader-load (format "%sconf" user-emacs-directory)))
 
 ;; (require 'cask nil t)
-(setq magit-last-seen-setup-instructions "1.4.0")
+;; (setq magit-last-seen-setup-instructions "1.4.0")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(recentf-auto-cleanup 10)
  '(recentf-auto-save-timer (run-with-idle-timer 30 t (quote recentf-save-list)) t)
  '(recentf-max-saved-items 500)

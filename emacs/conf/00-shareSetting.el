@@ -14,11 +14,10 @@
                (concat "/ssh:" l ":.emacs.d/server/server") t))
   )
 
-
 (setq server-use-tcp t
       server-port    9999)
 (server-start)
-(copy-server-file '("pine13")) ;; "mednlp"))
+(copy-server-file '("pine14")) ;; "mednlp"))
 
 ;; setting PATH
 (use-package exec-path-from-shell
@@ -77,7 +76,7 @@
 (setq-default truncate-lines nil)
 (setq delete-by-moving-to-trash t)
 (show-paren-mode t)
-
+(global-linum-mode t)
 (setq save-interprogram-paste-before-kill nil)
 
 ;; Auto-save-buffers
@@ -101,9 +100,9 @@
   (cua-mode t)
   (setq cua-enable-cua-keys nil))
 
-(use-package magit
-  :bind
-  (("C-c s" . magit-status)))
+;; (use-package magit
+;;   :config
+;;  )
 
 (use-package popwin
   :config
@@ -135,3 +134,28 @@
   ;; (define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch)
   (global-ace-isearch-mode 1))
 
+(use-package multiple-cursors
+  :config
+  (global-set-key (kbd "C-M-c") 'mc/edit-lines)
+  (global-set-key (kbd "C-M-r") 'mc/mark-all-in-region)
+  (global-unset-key "\C-t")
+  )
+
+(use-package smartrep
+  :config
+  (declare-function smartrep-define-key "smartrep")
+  (smartrep-define-key global-map "C-t"
+    '(("C-t"      . 'mc/mark-next-like-this)
+      ("n"        . 'mc/mark-next-like-this)
+      ("p"        . 'mc/mark-previous-like-this)
+      ("m"        . 'mc/mark-more-like-this-extended)
+      ("u"        . 'mc/unmark-next-like-this)
+      ("U"        . 'mc/unmark-previous-like-this)
+      ("s"        . 'mc/skip-to-next-like-this)
+      ("S"        . 'mc/skip-to-previous-like-this)
+      ("*"        . 'mc/mark-all-like-this)
+      ("d"        . 'mc/mark-all-like-this-dwim)
+      ("i"        . 'mc/insert-numbers)
+      ("o"        . 'mc/sort-regions)
+      ("O"        . 'mc/reverse-regions)))
+  )

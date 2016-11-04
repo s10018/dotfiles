@@ -7,6 +7,7 @@
     (setq ad-return-value
           (remove-if contain-japanese ad-return-value))))
   )
+
 (use-package auto-complete-config
   :init
   :config
@@ -18,8 +19,6 @@
         ac-ignore-case nil)
   (ac-config-default)
   (delq 'ac-source-yasnippet ac-sources)
-  (global-auto-complete-mode t)
   (add-hook 'auto-complete-mode-hook 'my/auto-complete-mode-hook)
   )
-
 

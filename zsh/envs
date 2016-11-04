@@ -1,6 +1,6 @@
 # -*- mode:shell-script -*-
 
-function include {
+include () {
     if echo "$1" | grep -q "$2"; then
         return 0
     else
@@ -48,8 +48,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export GOPATH=${HOME}/local/lib/go
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/mai-om/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 export HOMEBREW_BREWFILE=$HOME/.brewfile
+
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH="$(brew --prefix coreutils)/libexec/gnubin/":$PATH
+export PATH=/usr/local/texlive/2014/bin/x86_64-darwin:$PATH
+export HOMEBREW_CASK_OPTS=--caskroom=/opt/homebrew-cask/Caskroom

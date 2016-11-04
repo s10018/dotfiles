@@ -1,6 +1,15 @@
 # -*- mode: sh -*-
 
-if [[ $TERM != "screen" ]] exec screen -D -RR
+# if [[ $TERM != "screen" ]] exec screen -D -RR
+
+# prezto loading ....
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+export ZSH_LOCAL_DIR="$HOME/local/etc/zsh"
+
+source "$ZSH_LOCAL_DIR/tmux.sh"
 
 # User configuration
 autoload -U compinit
@@ -26,23 +35,25 @@ test -f "$HOME/.envs" && source "$HOME/.envs"
 test -f "$HOME/.alias" && source "$HOME/.alias"
 test -f "$HOME/.funcs" && source "$HOME/.funcs"
 
+# if [ ! -f "$HOME/.antigen/antigen.zsh" ]; then
+#     git clone https://github.com/zsh-users/antigen "$HOME/.antigen"
+# fi
+# source "$HOME/.antigen/antigen.zsh"
 
-if [ ! -f "$HOME/.antigen/antigen.zsh" ]; then
-    git clone https://github.com/zsh-users/antigen "$HOME/.antigen"
-fi
-source "$HOME/.antigen/antigen.zsh"
+# antigen bundle sorin-ionescu/prezto
+# if [ ! -L "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
+#     ln -sfn ~/.antigen/repos/.zprezto ~/.zprezto
+#     ln -sfn ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+# fi
+# antigen bundle mollifier/anyframe
+# antigen bundle zsh-users/zsh-completions src
+# antigen bundle unixorn/autoupdate-antigen.zshplugin
+# export ANTIGEN_PLUGIN_UPDATE_DAYS=5
 
-antigen bundle sorin-ionescu/prezto
-if [ ! -L "$ZSH_LOCAL_DIR/antigen.zsh" ]; then
-    ln -sfn ~/.antigen/repos/.zprezto ~/.zprezto
-    ln -sfn ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
-fi
-antigen bundle mollifier/anyframe
-antigen bundle zsh-users/zsh-completions src
-antigen bundle unixorn/autoupdate-antigen.zshplugin
-export ANTIGEN_PLUGIN_UPDATE_DAYS=5
+export ZPLUG_HOME=$HOME/.zplug
 
-export ZSH_LOCAL_DIR="$HOME/local/etc/zsh"
+source "$ZSH_LOCAL_DIR/zplug.sh"
+
 source "$ZSH_LOCAL_DIR/anyframe.sh"
 source "$ZSH_LOCAL_DIR/history.sh"
 source "$ZSH_LOCAL_DIR/editor.sh"
@@ -55,8 +66,17 @@ export PATH=`echo $PATH | perl -e 'my %path={}; my @list=(); foreach my $l (spli
 test -f "$HOME/.alias" && source "$HOME/.alias"
 test -f "$HOME/.funcs" && source "$HOME/.funcs"
 
+PERL_MB_OPT="--install_base \"/Users/mai-om/local/lib/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/mai-om/local/lib/perl5"; export PERL_MM_OPT;
 
-. /Users/mai-om/local/dist/torch/install/bin/torch-activate
+eval "$(ndenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PATH=$HOME/local/bin:$PATH
 
-PERL_MB_OPT="--install_base \"/Users/mai-om/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/mai-om/perl5"; export PERL_MM_OPT;
+eval `opam config env`
+
+export LIBRARY_PATH=$HOME/local/dist/mxnet/lib:$LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/opt/openblas/lib:/usr/local/lib:$LIBRARY_PATH
+
+export DYLD_LIBRARY_PATH=$HOME/local/dist/mxnet/lib:$DYLD_LIBRARY_PATH

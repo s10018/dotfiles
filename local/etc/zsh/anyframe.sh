@@ -1,5 +1,9 @@
 # -*- mode: sh -*-
 
+autoload -Uz anyframe-init
+anyframe-init
+
+
 bindkey '^xb' anyframe-widget-cdr
 bindkey '^x^b' anyframe-widget-checkout-git-branch
 
@@ -7,12 +11,12 @@ bindkey '^x^b' anyframe-widget-checkout-git-branch
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':completion:*' recent-dirs-insert both
-zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-max 1500
 zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
-function anyframe-widget-insert-history () {
+anyframe-widget-insert-history () {
     anyframe-source-history \
         | anyframe-selector-auto "$LBUFFER" \
         | anyframe-action-insert
@@ -22,6 +26,7 @@ zle -N -- anyframe-widget-insert-history
 
 # bindkey '^r' anyframe-widget-execute-history
 # bindkey '^x^r' anyframe-widget-execute-history
+
 bindkey '^r' anyframe-widget-insert-history
 bindkey '^x^r' anyframe-widget-insert-history
 

@@ -1,0 +1,40 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+show what hours or minutes are XX seconds
+"""
+
+import argparse
+
+
+def main(args):
+    funcs = {
+        "h": lambda x: x / 60.0 / 60.0,
+        "m": lambda x: x / 60.0,
+    }
+    label = {"h": "hour", "m": "minute"}
+    for unit in args.unit:
+        args.writer.write(
+            "{}\t{:.3f}{}\n".format(
+                label[unit].rjust(7, " "),
+                funcs[unit](args.sec), unit
+            )
+        )
+
+
+def get_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('sec', type=int)
+    parser.add_argument(
+        'unit', nargs='+', choices=['h', 'm']
+    )
+    parser.add_argument(
+        '-w', '--writer', type=argparse.FileType("w"),
+        default='-'
+    )
+    return parser
+
+
+if __name__ == '__main__':
+    main(get_parser().parse_args())

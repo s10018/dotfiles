@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# referred from https://github.com/yhoshino11/latest-dotfiles/blob/master/get_ssid
+
+/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | egrep "(\ SSID)" | awk '{print $2" " $3" " $4" " $5" " $6 ;}'
+

@@ -14,24 +14,34 @@
                   (cons "Ricty Discord" "iso10646-1"))
 
 ;; color theme
-;; (add-to-list 'custom-theme-load-path
-;;              (concat user-emacs-directory "el-get/replace-colorthemes"))
-;; (load-theme 'solarized-dark t)
-;; (enable-theme 'solarized-dark)
+(require 'cl)
+(setq added-color-theme-path
+      (list
+        (concat el-get-dir "/replace-colorthemes")
+        (concat el-get-dir "/base16")
+        (concat el-get-dir "/smyx")
+        ))
+(loop for x in added-color-theme-path
+      do (add-to-list 'custom-theme-load-path x))
 
-(use-package flatui-theme
-  :config
-  (load-theme 'flatui t)
-  (enable-theme 'flatui))
+(load-theme 'smyx t)
 
 ;; (load-theme 'julie t t)
 ;; (enable-theme 'julie) ;;'jonadabian-slate)
 
 ;; ;; highlight indent
-(use-package highlight-indentation
-  :config
-  (set-face-background 'highlight-indentation-face "#7d7000")
-  (set-face-background 'highlight-indentation-current-column-face "#7d7d7d")
-  (global-hl-line-mode))
+(use-package indent-guide-global-mode
+  :init
+  (indent-guide-global-mode)
+  (set-face-background 'indent-guide-face "dimgray")
+  )
 
+(global-hl-line-mode 1)
+
+;; (use-package highlight-indentation
+;;   :config
+;;   (set-face-background 'highlight-indentation-face "#7d6000")
+;;   (set-face-background 'highlight-indentation-current-column-face "#8d7070")
+;;   (global-hl-line-mode)
+;;   )
 

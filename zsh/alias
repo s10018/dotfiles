@@ -24,6 +24,7 @@ alias debian='vboxmanage startvm "debian" --type headless'
 alias doc_remove='docker rm -f `docker ps -a -q`'
 alias hiragana='nkf -e | kakasi -JH | nkf -w'
 alias rake="noglob rake"
+alias get_path='greadlink -f'
 
 # unalias history
 

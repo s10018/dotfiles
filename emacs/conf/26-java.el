@@ -1,4 +1,15 @@
 
+
+(defun my/java-mode-hook ()
+  (require 'jdee)
+  (flycheck-mode)
+  (setq indent-tabs-mode nil)
+  (setq c-basic-offset 2)
+  (setq jdee-server-dir "/Users/mai-om/.emacs.d/server")
+  )
+
+(add-hook 'jde-mode-hook 'my/java-mode-hook)
+
 ;; (require 'malabar-mode)
 
 ;; (defun my/java-mode-hook ()
